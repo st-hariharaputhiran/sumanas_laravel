@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\LoginwithFacebookController;
-
+use App\Http\Controllers\LinkedinController;
+use App\Http\Controllers\OnetomanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('polyonetomany', [OnetomanyController::class, 'getPotmPostComment'])->name('polyonetomany');
+    Route::get('postcomments', [OnetomanyController::class, 'postcomments'])->name('postcomments');
 });
 
 Auth::routes();
@@ -41,3 +44,8 @@ Route::controller(LoginWithGoogleController::class)->group(function(){
 Route::get('auth/facebook', [LoginwithFacebookController::class, 'facebookRedirect']);
 
 Route::get('auth/facebook/callback', [LoginwithFacebookController::class, 'loginWithFacebookUser']);
+
+Route::get('auth/linkedin', [LinkedinController::class, 'linkedinRedirect']);
+Route::get('auth/linkedin/callback', [LinkedinController::class, 'linkedinCallback']);
+
+

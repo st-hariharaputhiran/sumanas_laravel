@@ -33,12 +33,16 @@ return [
     'google' => [
         'client_id' => '909077627050-nggpbpsbh028mho2h41667te3ek8og02.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://localhost:80/laravel_ten_features/public/authorized/google/callback',
+        'redirect' => 'http://127.0.0.1:8000/authorized/google/callback',
     ],
     'facebook' => [
         'client_id' => '735519938383727',
         'client_secret' => '7c6208d1bbc7a2c04d6539fded0ee2ec',
-        'redirect' => 'http://localhost:80/laravel_ten_features/public/auth/facebook/callback',
+        'redirect' => 'http://sumanas_laravel.test/auth/facebook/callback',
     ],
-
+    'linkedin-openid' => [
+        'client_id' => '77osung51u6i3k',
+        'client_secret' => '1lX80q7gVz2h61pq',
+        'redirect' => 'http://sumanas_laravel.test/auth/linkedin/callback',
+    ]
 ];
