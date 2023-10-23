@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo Application</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-notifications.min.css">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css"
+      href="//cdn.jsdelivr.net/npm/bootstrap-notifications@1.0.3/dist/stylesheets/bootstrap-notifications.min.css">
+    
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -72,7 +70,8 @@
       // Pusher.logToConsole = true;
 
       var pusher = new Pusher('5e2ef858982e46bf38bd', {
-        encrypted: true
+        encrypted: true,
+        cluster: 'ap2'
       });
 
       // Subscribe to the channel we specified in our Laravel Event

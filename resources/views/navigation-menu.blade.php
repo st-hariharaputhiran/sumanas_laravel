@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('polyonetomany') }}" :active="request()->routeIs('polyonetomany')">
                         {{ __('OnetoMany') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('notificationview') }}" :active="request()->routeIs('notificationview')">
+                        {{ __('Notifications') }}
+                    </x-nav-link>
                 </div>
             </div>
 

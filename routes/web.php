@@ -34,10 +34,18 @@ Route::middleware([
     Route::get('postcomments', [OnetomanyController::class, 'postcomments'])->name('postcomments');
     Route::get('notificationview', function () {
     return view('notifications');
-    });
+    })->name('notificationview');
     Route::get('sendevent', function () {
     event(new App\Events\StatusLiked('Someone'));
     return "Event has been sent!";
+    });
+    Route::get('email-test', function(){
+  
+    $details['email'] = 'hariharan.sulur@gmail.com';
+  
+    dispatch(new App\Jobs\SendEmailJob($details));
+  
+    dd('done');
 });
 });
 
