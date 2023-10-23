@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,9 +32,16 @@ Route::middleware([
     })->name('dashboard');
     Route::get('polyonetomany', [OnetomanyController::class, 'getPotmPostComment'])->name('polyonetomany');
     Route::get('postcomments', [OnetomanyController::class, 'postcomments'])->name('postcomments');
+    Route::get('notificationview', function () {
+    return view('notifications');
+    });
+    Route::get('sendevent', function () {
+    event(new App\Events\StatusLiked('Someone'));
+    return "Event has been sent!";
+});
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
