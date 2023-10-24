@@ -31,8 +31,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('polyonetomany', [OnetomanyController::class, 'getPotmPostComment'])->name('polyonetomany');
+    Route::get('polyonetomany', [OnetomanyController::class, 'getPotmPostCommentVideos'])->name('polyonetomany');
     Route::get('postcomments', [OnetomanyController::class, 'postcomments'])->name('postcomments');
+    Route::get('posttags', [OnetomanyController::class, 'posttags'])->name('posttags');
+    Route::get('videocomments', [OnetomanyController::class, 'videocomments'])->name('videocomments');
+    Route::get('videotags', [OnetomanyController::class, 'videotags'])->name('videotags');
     Route::get('notificationview', function () {
     return view('notifications');
     })->name('notificationview');

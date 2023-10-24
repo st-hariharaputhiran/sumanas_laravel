@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('polyonetomany') }}" :active="request()->routeIs('polyonetomany')">
-                        {{ __('OnetoMany') }}
+                        {{ __('Polymorphic Relations') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('notificationview') }}" :active="request()->routeIs('notificationview')">
                         {{ __('Notifications') }}
