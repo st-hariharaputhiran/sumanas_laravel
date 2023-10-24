@@ -12,9 +12,9 @@ class OnetomanyController extends Controller
 {
     public function getPotmPostCommentVideos(Request $request)
     {
-        $posts = Post::Paginate(2,['*'], 'posts_page');
+        $posts = Post::Paginate(5,['*'], 'posts_page');
         //$posts->setPageName('posts_page');
-        $videos = Video::Paginate(2,['*'], 'videos_page');
+        $videos = Video::Paginate(5,['*'], 'videos_page');
         //$videos->setPageName('videos_page');
         
         return view('posts', ['posts' => $posts,'videos' => $videos]);

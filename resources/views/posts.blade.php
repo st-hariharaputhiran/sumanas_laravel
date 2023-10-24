@@ -16,7 +16,8 @@
         <label class="alert alert-danger w-100">{{session('error')}}</label>
     @endif
     <div>
-        <h3><b>Note: Comment is One to Many, Tags are Many to Many</b></h3>
+        <h3><b>Note: Comment is One to Many, Tags are Many to Many</b></h3><br><br>
+        <h1><b>Posts</b></h1><br><br>
     </div>
     <table class="w-full whitespace-no-wrapw-full whitespace-no-wrap">
         <thead>
@@ -72,6 +73,9 @@
         {{$posts->appends(['videos_page' => $videos->currentPage()])->links();}}
     </div>
     <br><br>
+    <div>
+        <h1><b>Videos</b></h1><br><br>
+    </div>
     <table class="w-full whitespace-no-wrapw-full whitespace-no-wrap">
         <thead>
         <tr class="text-center font-bold">
