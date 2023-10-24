@@ -66,8 +66,8 @@
         notificationsWrapper.hide();
       }
 
-      var user = {!! auth()->user()->toJson() !!};
-      console.log(user);
+      var userid = {{ Auth::user()->id; }};
+      console.log("USER DETAILS",userid);
       // Enable pusher logging - don't include this in production
       Pusher.logToConsole = true;
 
@@ -78,7 +78,7 @@
       console.log(pusher);
 
       // Subscribe to the channel we specified in our Laravel Event
-      var channel = pusher.subscribe('status-liked'+user.id);
+      var channel = pusher.subscribe('status-liked'+userid);
       
       //console.log(channel.bind("App\\Events\\StatusLiked", function(data) {}));
       // Bind a function to a Event (the full Laravel class)
