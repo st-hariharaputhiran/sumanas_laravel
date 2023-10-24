@@ -80,9 +80,9 @@
       // Subscribe to the channel we specified in our Laravel Event
       var channel = pusher.subscribe('status-liked'+user.id);
       
-      console.log(channel.bind("App\\Events\\StatusLiked", function(data) {}));
+      //console.log(channel.bind("App\\Events\\StatusLiked", function(data) {}));
       // Bind a function to a Event (the full Laravel class)
-      channel.bind("App\Events\StatusLiked", function(data) {
+      channel.bind("App\\Events\\StatusLiked", function(data) {
         console.log("ergrehtrhrt",data);
         var existingNotifications = notifications.html();
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;

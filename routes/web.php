@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\LoginwithFacebookController;
 use App\Http\Controllers\LinkedinController;
@@ -36,7 +37,7 @@ Route::middleware([
     return view('notifications');
     })->name('notificationview');
     Route::get('sendevent', function () {
-    //event(new App\Events\StatusLiked(Auth::user()->name,Auth::user()->id));
+    event(new App\Events\StatusLiked(Auth::user()->name,Auth::user()->id));
     //dd(Auth::user()->name);
     return "Event has been sent!";
     });

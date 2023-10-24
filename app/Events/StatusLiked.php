@@ -15,6 +15,8 @@ class StatusLiked implements ShouldBroadcast
 
     public $message;
 
+    public $id;
+
     /**
      * Create a new event instance.
      *
