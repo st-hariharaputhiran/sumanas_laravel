@@ -36,7 +36,8 @@ Route::middleware([
     return view('notifications');
     })->name('notificationview');
     Route::get('sendevent', function () {
-    event(new App\Events\StatusLiked('Someone'));
+    //event(new App\Events\StatusLiked(Auth::user()->name,Auth::user()->id));
+    //dd(Auth::user()->name);
     return "Event has been sent!";
     });
     Route::get('email-test', function(){

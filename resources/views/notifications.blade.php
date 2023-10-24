@@ -66,19 +66,24 @@
         notificationsWrapper.hide();
       }
 
+      var user = {!! auth()->user()->toJson() !!};
+      console.log(user);
       // Enable pusher logging - don't include this in production
-      // Pusher.logToConsole = true;
+      Pusher.logToConsole = true;
 
       var pusher = new Pusher('5e2ef858982e46bf38bd', {
         encrypted: true,
         cluster: 'ap2'
       });
+      console.log(pusher);
 
       // Subscribe to the channel we specified in our Laravel Event
-      var channel = pusher.subscribe('status-liked');
-
+      var channel = pusher.subscribe('status-liked'+user.id);
+      
+      console.log(channel.bind("App\\Events\\StatusLiked", function(data) {}));
       // Bind a function to a Event (the full Laravel class)
-      channel.bind('App\\Events\\StatusLiked', function(data) {
+      channel.bind("App\Events\StatusLiked", function(data) {
+        console.log("ergrehtrhrt",data);
         var existingNotifications = notifications.html();
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
         var newNotificationHtml = `
@@ -100,8 +105,9 @@
           </li>
         `;
         notifications.html(newNotificationHtml + existingNotifications);
-
+        console.log(notifications.html);
         notificationsCount += 1;
+        console.log(notificationsCount);
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
@@ -109,4 +115,3 @@
     </script>
   </body>
 </html>
-

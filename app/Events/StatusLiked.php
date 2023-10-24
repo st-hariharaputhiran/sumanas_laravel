@@ -20,8 +20,9 @@ class StatusLiked implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($username)
+    public function __construct($username,$id)
     {
+        $this->id=$id;
         $this->username = $username;
         $this->message  = "{$username} liked your status";
     }
@@ -33,6 +34,6 @@ class StatusLiked implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['status-liked'];
+        return ['status-liked'.$this->id];
     }
 }
