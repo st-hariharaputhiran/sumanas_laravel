@@ -26,6 +26,7 @@
             <th class="border px-6 py-4">Name</th>
             <th class="border px-6 py-4">Action Comment</th>
             <th class="border px-6 py-4">Action Tags</th>
+            <th class="border px-6 py-4">Action Images</th>
         </tr>
         </thead>
         <tbody>
@@ -62,6 +63,21 @@
                         {{$tag->name}}
                     </div>
                     @endforeach
+                    @endif
+                </td>
+                <td class="border px-6 py-4">
+                    <form name="postimage" id="postimage" action="{{ route('postimages') }}">
+                    <input type="text" name="imgurl" placeholder="Image Url" id="imgurl">
+                    <input type="hidden" name="postimgid" value="{{$post->id}}">
+                    <input type="hidden" name="redirects_to_tag" value="{{\Request::fullUrl()}}">
+                    <input type="submit" class="btn btn-success btn-sm" value="Image">
+                    </form>
+                    @if(isset($post->image))
+                    
+                    <div>
+                        {{ $post->image->url; }}
+                    </div>
+                    
                     @endif
                 </td>
             </tr>

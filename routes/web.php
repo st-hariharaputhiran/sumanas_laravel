@@ -34,6 +34,8 @@ Route::middleware([
     Route::get('polyonetomany', [OnetomanyController::class, 'getPotmPostCommentVideos'])->name('polyonetomany');
     Route::get('postcomments', [OnetomanyController::class, 'postcomments'])->name('postcomments');
     Route::get('posttags', [OnetomanyController::class, 'posttags'])->name('posttags');
+    Route::get('postimages', [OnetomanyController::class, 'postimages'])->name('postimages');
+    
     Route::get('videocomments', [OnetomanyController::class, 'videocomments'])->name('videocomments');
     Route::get('videotags', [OnetomanyController::class, 'videotags'])->name('videotags');
     Route::get('notificationview', function () {
@@ -41,7 +43,6 @@ Route::middleware([
     })->name('notificationview');
     Route::get('sendevent', function () {
     event(new App\Events\StatusLiked(Auth::user()->name,Auth::user()->id));
-    //dd(Auth::user()->name);
     return "Event has been sent!";
     });
     Route::get('email-test', function(){

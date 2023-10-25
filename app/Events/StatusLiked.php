@@ -27,7 +27,8 @@ class StatusLiked implements ShouldBroadcastNow
     {
         $this->id=$id;
         $this->username = $username;
-        $this->message  = "{$username} liked your status";
+        $this->message  = "<html><body><p>{$username} liked your status</p></body></html>";
+        
     }
 
     /**
@@ -37,6 +38,7 @@ class StatusLiked implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
+        //dd($this->id);
         return ['status-liked'.$this->id];
     }
 }
